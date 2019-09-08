@@ -47,9 +47,6 @@ def ugibaj(id_igre):
             igra.zamenjaj_ekipo
         bottle.redirect('/igra/{}/konec/'.format(id_igre))
     
-
-
-    
     if igra.st_ugibov <= 0:
         igra.zamenjaj_ekipo()
         codenames.igre[id_igre] = igra
