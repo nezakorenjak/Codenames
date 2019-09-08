@@ -4,11 +4,45 @@
 <body>
 
   <h1>Codenames</h1>
-Igra ekipa {{ igra.ekipe[igra.ekipa_na_potezi].ime_ekipe }} <br/>
+<br/>
+<br/>
+
+Igra ekipa <span style="background-color:lightblue">{{ igra.ekipe[igra.ekipa_na_potezi].ime_ekipe }}</span> <br/>
 Na potezi je {{ igra.ekipe[igra.ekipa_na_potezi].govorec }} <br/>
+
+<br/>
+<br/>
+
+<table>
+% for i in range(4):
+<tr>
+% for j in range(4):
+<td style="background-color:
+% if igra.matrika[i][j] == 0:
+lightgray
+% elif igra.matrika[i][j] == 3:
+red
+% elif igra.matrika[i][j] == igra.ekipa_na_potezi:
+lightblue
+% elif igra.matrika[i][j] == 4:
+lightgray
+% else:
+beige
+% end
+">
+{{ igra.polje[i][j] }}
+</td>
+% end
+</tr>
+% end
+</table>
+
+<br/>
+<br/>
+
   <form action="/igra/{{id_igre}}/asociacija/" method="post">
     Vpiši asociacijo: <input type="text" name="asociacija"> <br/>
-    Vpiši število ugibov: <input type="text" name="st_ugibov"> <br/>
+    Vpiši število ugibov: <input type="number" name="st_ugibov" min="1" max="5"> <br/>
     
     
     

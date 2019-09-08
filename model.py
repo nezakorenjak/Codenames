@@ -1,4 +1,9 @@
 #Tukaj bodo konstante 
+ODKRITA = 4
+BOMBA = 3
+EKIPA2 = 2
+EKIPA1 = 1
+SIVO = 0
 # 
 # codenames_bazen.txt
 
@@ -38,36 +43,36 @@ class Igra:
             self.ekipa_na_potezi = 1
 
     def konec(self):
-        if vsebuje(matrika, 1) and vsebuje(matrika, 2):
+        if vsebuje(self.matrika, 1) and vsebuje(self.matrika, 2):
             return 0
-        elif vsebuje(matrika, 1) and not vsebuje(matrika, 2):
+        elif vsebuje(self.matrika, 1) and not vsebuje(self.matrika, 2):
             return 2
-        elif vsebuje(matrika, 2) and not vsebuje(matrika, 1):
+        elif vsebuje(self.matrika, 2) and not vsebuje(self.matrika, 1):
             return 1
         else:
             return -1 #morda kaj drugega, če bo do tega res prihajalo
 
-    def poteza_govorca(asociacija, st_ugibov):
+    def poteza_govorca(self, asociacija, st_ugibov):
         self.trenutna_asociacija = asociacija
         self.st_ugibov = st_ugibov
     
-    def ugibaj(i, j):
-        if self.matrika[i][j] == 3:
-            print('BOMBA!')
-            zamenjaj_ekipo()
+    def ugibaj(self, i, j):
+        if self.matrika[i][j] == BOMBA:
+            self.zamenjaj_ekipo()
             for i in range(4):
                 for j in range(4):
-                    if matrika[i][j] == self.ekipa_na_potezi:
-                        matrika[i][j] = 0
+                    if self.matrika[i][j] == self.ekipa_na_potezi:
+                        self.matrika[i][j] = ODKRITA
             #KONEC IGRE BO
         elif self.matrika[i][j] == self.ekipa_na_potezi:
-            self.matrika[i][j] = 0
-            print('Bravo! Ugib je pravilen.')
-        elif self.matrika[i][j] == 0:
-            print('To polje je sivo.')
+            self.matrika[i][j] = ODKRITA
+            #Uspešen ugib.            
+        elif self.matrika[i][j] == SIVO:
+            self.matrika[i][j] = ODKRITA
+            #Poskus je šel v nič.
         else:
-            self.matrika[i][j] = 0
-            print('Nasprotniki se ti zahvaljujejo za pomoč.')
+            self.matrika[i][j] = ODKRITA
+            # Nasprotniki se ti zahvaljujejo za pomoč.
         self.st_ugibov -= 1
 
 
@@ -133,15 +138,6 @@ class Codenames:
         self.igre[id] = (igra)
         return id
 
-    def ugibaj(self, id_igre, i, j):
-        # Pridobi igro
-        igra = self.igre[id_igre]
-        igra.ugibaj(i, j)
-        self.igre[id_igre] = igra
     
-    def poteza_govorca(self, id_igre, asociacija, st_ugibov):
-        igra = self.igre[id_igre]
-        igra.poteza_govorca(asociacija, st_ugibov)
-        self.igre[id_igre] = igra
 
         
