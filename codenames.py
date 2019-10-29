@@ -6,6 +6,10 @@ codenames = model.Codenames()
 def prva_stran():
     return bottle.template('index.tpl')
 
+@bottle.get('/navodila/')
+def navodila():
+    return bottle.template('navodila.tpl')
+
 @bottle.post('/igra/')
 def zacni_novo_igro():
     e1_ime = bottle.request.forms.getunicode('e1_ime')
@@ -59,4 +63,4 @@ def konec(id_igre):
     igra = codenames.igre[id_igre]
     return bottle.template('konec.tpl', igra=igra, id_igre=id_igre)
 
-bottle.run(debug=True, reloader=True) 
+bottle.run(host='0.0.0.0', debug=True, reloader=True) 

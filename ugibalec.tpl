@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+% import model
+
 <body>
 
   <h1>Codenames</h1>
@@ -25,7 +27,7 @@ Trenutna asociacija: {{ igra.trenutna_asociacija }} <br/>
     <tr>
         % for j in range(4):
         <td>
-            % if igra.matrika[i][j] == 4:
+            % if igra.matrika[i][j] == model.ODKRITA:
                 {{ igra.polje[i][j] }}
             % else: 
                 <input type="submit" name="polje" id="{{ i }}{{ j }}" value="{{ i }}{{ j }} {{ igra.polje[i][j] }}" >

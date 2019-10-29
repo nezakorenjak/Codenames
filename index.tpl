@@ -16,10 +16,20 @@
     Govorec: <input type="text" name="e2_govorec" value="Jure"> <br/>
     Ugibalec: <input type="text" name="e2_ugibalec" value="Jana"> <br/>
     
-    
+<br/>
     
     <button type="submit">Nova igra</button>
   </form>
+
+
+<br/>
+<br/>
+
+
+  <form action="/navodila/" method="get">
+    <button type="submit">Pravila igre</button>
+  </form>
+
 </body>
 
 </html>

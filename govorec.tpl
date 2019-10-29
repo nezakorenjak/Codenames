@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+% import model
+
 <body>
 
   <h1>Codenames</h1>
@@ -18,13 +20,13 @@ Na potezi je {{ igra.ekipe[igra.ekipa_na_potezi].govorec }} <br/>
 <tr>
 % for j in range(4):
 <td style="background-color:
-% if igra.matrika[i][j] == 0:
+% if igra.matrika[i][j] == model.SIVO:
 lightgray
-% elif igra.matrika[i][j] == 3:
+% elif igra.matrika[i][j] == model.BOMBA:
 red
 % elif igra.matrika[i][j] == igra.ekipa_na_potezi:
 lightblue
-% elif igra.matrika[i][j] == 4:
+% elif igra.matrika[i][j] == model.ODKRITA:
 lightgray
 % else:
 beige

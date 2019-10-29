@@ -32,15 +32,15 @@ class Igra:
         self.matrika = matrika
         self.polje = polje
         self.ekipe = {1: ekipe[0], 2: ekipe[1]}
-        self.ekipa_na_potezi = 1
+        self.ekipa_na_potezi = EKIPA1
         self.trenutna_asociacija = ''
         self.st_ugibov = 0
 
     def zamenjaj_ekipo(self):
-        if self.ekipa_na_potezi == 1:
-            self.ekipa_na_potezi = 2
-        elif self.ekipa_na_potezi == 2:
-            self.ekipa_na_potezi = 1
+        if self.ekipa_na_potezi == EKIPA1:
+            self.ekipa_na_potezi = EKIPA2
+        elif self.ekipa_na_potezi == EKIPA2:
+            self.ekipa_na_potezi = EKIPA1
 
     def konec(self):
         if vsebuje(self.matrika, 1) and vsebuje(self.matrika, 2):
