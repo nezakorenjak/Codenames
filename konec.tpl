@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html>
+% rebase('base.tpl', title = 'Konec igre')
 
-<body>
+    <h2>Konec igre!</h2>
 
-  <h1>Codenames</h1>
-<br/>
-<br/>
-
-<h2>Konec igre!</h2>
-<br/>
-<br/>
-
-Zmagala je ekipa <b>{{ igra.ekipe[igra.ekipa_na_potezi].ime_ekipe }}</b> <br/>
-
-
-<br/>
-<br/>
-
+Zmagala je ekipa <b>{{ igra.ekipe[igra.ekipa_na_potezi].ime_ekipe }}</b>
 
   <form action="/" method="get">
-    <button type="submit">Nova igra</button>
+    <button type="submit" class="btn btn-primary">Nova igra</button>
   </form>
-</body>
-
-</html>

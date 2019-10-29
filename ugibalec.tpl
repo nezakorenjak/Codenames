@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-
+% rebase('base.tpl', title = 'Ugibalec')
 % import model
-
-<body>
-
-  <h1>Codenames</h1>
-<br/>
-<br/>
-
 Igra ekipa {{ igra.ekipe[igra.ekipa_na_potezi].ime_ekipe }} <br/>
 Na potezi je {{ igra.ekipe[igra.ekipa_na_potezi].ugibalec }} <br/>
 
 <br/>
 <br/>
 
-Trenutna asociacija: {{ igra.trenutna_asociacija }} <br/>
+Trenutna asociacija: <b> {{ igra.trenutna_asociacija }} </b> <br/>
 Število preostalih ugibov: {{ igra.st_ugibov }}
 <br/>
 <br/>
@@ -30,7 +21,7 @@ Trenutna asociacija: {{ igra.trenutna_asociacija }} <br/>
             % if igra.matrika[i][j] == model.ODKRITA:
                 {{ igra.polje[i][j] }}
             % else: 
-                <input type="submit" name="polje" id="{{ i }}{{ j }}" value="{{ i }}{{ j }} {{ igra.polje[i][j] }}" >
+                <input type="submit" class="btn btn-secondary" name="polje" id="{{ i }}{{ j }}" value="{{ i }}{{ j }} {{ igra.polje[i][j] }}" >
             % end
         </td>
         % end
@@ -39,17 +30,3 @@ Trenutna asociacija: {{ igra.trenutna_asociacija }} <br/>
 </table>
 
  </form>
-
-<br/>
-<br/>
-
-
-
-
-
-
-
-
-</body>
-
-</html>

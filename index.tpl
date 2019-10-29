@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-
-  <h1>Codenames</h1>
+% rebase('base.tpl', title = 'Nova igra')
 
   <form action="/igra/" method="post">
     <h2>Ekipa 1:</h2>
@@ -16,20 +11,7 @@
     Govorec: <input type="text" name="e2_govorec" value="Jure"> <br/>
     Ugibalec: <input type="text" name="e2_ugibalec" value="Jana"> <br/>
     
-<br/>
     
-    <button type="submit">Nova igra</button>
+    <button type="submit" class="btn btn-primary">Nova igra</button>
+    <a class="btn btn-secondary" href="/navodila/" role="button">Pravila igre</a>
   </form>
-
-
-<br/>
-<br/>
-
-
-  <form action="/navodila/" method="get">
-    <button type="submit">Pravila igre</button>
-  </form>
-
-</body>
-
-</html>
