@@ -1,11 +1,17 @@
-#Tukaj bodo konstante 
+#To so stanja polj:
+
 ODKRITA = 4
 BOMBA = 3
 EKIPA2 = 2
 EKIPA1 = 1
 SIVO = 0
-# 
-# codenames_bazen.txt
+
+#To je stanje igre / poteze:
+
+ZMAGA = 'z'
+MENJAVA = 'm'
+NADALJUJ = 'n'
+
 
 
 import random
@@ -138,6 +144,26 @@ class Codenames:
         self.igre[id] = (igra)
         return id
 
-    
+    def ugibaj(self, id_igre, gumb0, gumb1):
+        
+        igra = self.igre[id_igre]
+        igra.ugibaj(gumb0, gumb1)
+        zmagovalec = igra.konec()
+        
+        if zmagovalec > 0:
+            if zmagovalec != igra.ekipa_na_potezi:
+                igra.zamenjaj_ekipo
+            return ZMAGA
+        elif igra.st_ugibov <= 0:
+            igra.zamenjaj_ekipo()
+            self.igre[id_igre] = igra
+            return MENJAVA
+        else:
+            return NADALJUJ
+
+    def poteza_govorca(self, id_igre, asociacija, st_ugibov):
+        igra = self.igre[id_igre]
+        igra.poteza_govorca(asociacija, st_ugibov)
+        
 
         
